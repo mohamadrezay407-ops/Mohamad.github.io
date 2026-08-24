@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>اکسل‌کلین</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1.1/script/office.js"></script>
+    <style>
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .btn {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background: #1d4ed8;
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <h2>اکسل‌کلین</h2>
+    <button class="btn" onclick="cleanData()">پاکسازی داده</button>
+    <button class="btn" onclick="removeDuplicates()">حذف تکراری</button>
+    <button class="btn" onclick="trimSpaces()">حذف فاصله</button>
+    <div class="status" id="status">وضعیت: آماده</div>
+
+    <script>
+        Office.onReady(function(info) {
+            if (info.host === Office.HostType.Excel) {
+                document.getElementById('status').innerText = 'وضعیت: متصل به اکسل';
+            }
+        });
+
+        async function cleanData() {
+            try {
+                await Excel.run(async (context) => {
+                    const range = context.workbook.getSelectedRange();
+                    range.load('values');
+                    await context.sync();
+
+                    let values = range.values;
+                    for (let i = 0; i < values.length; i++) {
+                        for (let j = 0; j < values[i].length; j++) {
+                            if (typeof values[i][j] === 'string') {
+                                values[i][j] = values[i][j].trim();
+                            }
+                        }
+                    }
+
+                    range.values = values;
+                    await context.sync();
+                });
+                document.getElementById('status').innerText = 'وضعیت: پاکسازی کامل شد!';
+            } catch (error) {
+                document.getElementById('status').innerText = 'خطا: ' + error.message;
+            }
+        }
+
+        async function removeDuplicates() {
+            document.getElementById('status').innerText = 'وضعیت: در حال حذف تکراری...';
+        }
+
+        async function trimSpaces() {
+            document.getElementById('status').innerText = 'وضعیت: در حال حذف فاصله...';
+        }
+    </script>
+</body>
+</html>
