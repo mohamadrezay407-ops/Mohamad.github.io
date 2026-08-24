@@ -1,26 +1,33 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" 
-           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-           xsi:type="MailApp">
-  <Id>12345678-1234-1234-1234-123456789012</Id>
-  <Version>1.0.0</Version>
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="TaskPaneApp">
+
+  <Id>c2d3135a-7601-4c9d-88b2-bd4b598a1a01</Id>
+  <Version>1.0.0.0</Version>
   <ProviderName>ExcelPro</ProviderName>
   <DefaultLocale>fa-IR</DefaultLocale>
+
   <DisplayName DefaultValue="اکسل‌کلین"/>
-  <Description DefaultValue="پاکسازی داده در اکسل"/>
-  <IconUrl DefaultValue="https://excelpro.pplx.app/icon.png"/>
-  <HighResolutionIconUrl DefaultValue="https://excelpro.pplx.app/icon-hd.png"/>
-  <SupportUrl DefaultValue="https://excelpro.pplx.app/support"/>
+  <Description DefaultValue="پاکسازی سریع داده‌های انتخاب‌شده در اکسل"/>
+
+  <IconUrl DefaultValue="https://mohamadrezay407-ops.github.io/Mohamad.github.io/excelclean.html"/>
+  <HighResolutionIconUrl DefaultValue="https://mohamadrezay407-ops.github.io/Mohamad.github.io/excelclean.html"/>
+  <SupportUrl DefaultValue="https://excelpro.pplx.app"/>
+
   <AppDomains>
-    <AppDomain>https://excelpro.pplx.app</AppDomain>
+    <AppDomain>https://mohamadrezay407-ops.github.io</AppDomain>
   </AppDomains>
+
   <Hosts>
     <Host Name="Workbook"/>
   </Hosts>
+
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://excelpro.pplx.app/excelclean.html"/>
+    <SourceLocation DefaultValue="https://mohamadrezay407-ops.github.io/Mohamad.github.io/excelclean.html"/>
     <RequestedWidth>400</RequestedWidth>
     <RequestedHeight>600</RequestedHeight>
   </DefaultSettings>
+
   <Permissions>ReadWriteDocument</Permissions>
 </OfficeApp>
